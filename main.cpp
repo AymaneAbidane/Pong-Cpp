@@ -8,7 +8,15 @@ const int screenWidth = 1280;
 const int screenHeight = 800;
 const string gameTitle = "The pong Game";
 
-const float gameTargetFps = 60.0f;
+const int gameTargetFps = 60;
+
+const float pongBallRadius = 15.0f;
+
+const int pongPaddlesWidth = 25;
+const int pongPaddlesHeight = 120;
+const int pongPaddlesYPosition = screenHeight / 2 - pongPaddlesHeight / 2;//center the paddle on the screen
+const int leftPongPaddleXPosition = 25;
+const int rightPongPaddleXPosition = screenWidth - 25 - leftPongPaddleXPosition;
 
 int main(void)
 {
@@ -21,7 +29,10 @@ int main(void)
 	{
 		BeginDrawing();//begin drawing
 
-
+		DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, WHITE);//draw the center line
+		DrawCircle(screenWidth / 2, screenHeight / 2, pongBallRadius, WHITE);//draw the pong ball
+		DrawRectangle(leftPongPaddleXPosition, pongPaddlesYPosition, pongPaddlesWidth, pongPaddlesHeight, ORANGE);//draw the left paddle
+		DrawRectangle(rightPongPaddleXPosition, pongPaddlesYPosition, pongPaddlesWidth, pongPaddlesHeight, ORANGE);//draw the right paddle
 
 		EndDrawing();//end drawing
 	}
