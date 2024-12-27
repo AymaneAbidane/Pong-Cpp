@@ -1,47 +1,31 @@
 #include "raylib.h"
 #include "main.h"
+#include "iostream"
 
-//------------------------------------------------------------------------------------
-// Program main entry point
-//------------------------------------------------------------------------------------
+using namespace std;
+
+const int screenWidth = 1280;
+const int screenHeight = 800;
+const string gameTitle = "The pong Game";
+
+const float gameTargetFps = 60.0f;
+
 int main(void)
 {
-	// Initialization
-	//--------------------------------------------------------------------------------------
-	const int screenWidth = 800;
-	const int screenHeight = 600;
+	cout << "Starting The Game" << endl;//this message will be displayed in terminal
 
-	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+	InitWindow(screenWidth, screenHeight, gameTitle.c_str());//initialize the window
+	SetTargetFPS(gameTargetFps);//set the frame rate
 
-	SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-	//--------------------------------------------------------------------------------------
-
-	const char* displayText = "Testing My First Window!";
-
-	// Main game loop
-	while (!WindowShouldClose())    // Detect window close button or ESC key
+	while (WindowShouldClose() == false)//loop until the window is closed and inside of this while loop we will put our game logic
 	{
-		// Update
-		//----------------------------------------------------------------------------------
-		// TODO: Update your variables here
-		//----------------------------------------------------------------------------------
+		BeginDrawing();//begin drawing
 
-		// Draw
-		//----------------------------------------------------------------------------------
-		BeginDrawing();
 
-		ClearBackground(RED);
 
-		DrawText(displayText, 190, 200, 20, DARKGREEN);
-
-		EndDrawing();
-		//----------------------------------------------------------------------------------
+		EndDrawing();//end drawing
 	}
 
-	// De-Initialization
-	//--------------------------------------------------------------------------------------
-	CloseWindow();        // Close window and OpenGL context
-	//--------------------------------------------------------------------------------------
-
+	CloseWindow();//close the window	
 	return 0;
 }
